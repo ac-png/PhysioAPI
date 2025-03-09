@@ -1,0 +1,58 @@
+# Node.js
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Environment files
+.env
+.env.*
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS-specific files
+.DS_Store                # macOS
+Thumbs.db                # Windows
+Desktop.ini              # Windows
+
+# VS Code
+.vscode/
+
+# IDE-specific files
+.idea/
+*.swp                     # Vim swap files
+
+# Build output
+dist/
+build/
+coverage/
+
+# Optional npm cache directory
+.npm/
+
+# Debugging files
+.vscode/launch.json
+.vscode/tasks.json
+
+# TypeScript
+*.tsbuildinfo
+
+# SASS cache
+.sass-cache/
+
+# MacOS
+.AppleDouble
+.LSOverride
+
+# Linux
+*~
+
+# Windows
+ehthumbs.db
+Icon?
+Desktop.ini
