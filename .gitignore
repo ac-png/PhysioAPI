@@ -1,0 +1,56 @@
+# Flask specific
+*.pyc
+*.pyo
+__pycache__/
+instance/
+.env
+.venv/
+venv/
+ENV/
+env/
+
+# VSCode settings
+.vscode/
+
+# macOS specific files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows specific files
+Thumbs.db
+ehthumbs.db
+
+# Linux specific files
+*.swp
+*.swo
+
+# PyCharm specific files
+.idea/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Node.js dependencies (if any)
+node_modules/
+
+# Python virtual environments (if any)
+env/
+.venv/
+venv/
+
+# Log files
+*.log
+
+# Coverage reports (if using pytest-cov or similar)
+.coverage
+*.cover
+
+# Test database files
+*.db
+
+# Other IDE settings
+.idea/
+
+# Mac system files
+*~
