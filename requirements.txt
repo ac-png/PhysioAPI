@@ -1,0 +1,11 @@
+Flask
+psycopg2-binary
+SQLAlchemy
+Faker
+Flask-SQLAlchemy
+Flask-Migrate
+flask-graphql
+graphene
+graphene-sqlalchemy
+jwt
+pyjwt
