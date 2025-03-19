@@ -1,5 +1,6 @@
 from app.seeds import seed_physios, seed_feedback, seed_treatments, seed_users, seed_programs, seed_exercises, seed_appointments, seed_exercise_sessions
-from app.models import Physio, User, Treatment, Exercise, Appointment, ExerciseSession
+from app.models import Physio, User, Treatment, Exercise, Appointment, ExerciseSession, Program
+
 
 def seed_data():
     print("Seeding data...")
@@ -8,8 +9,7 @@ def seed_data():
     users = User.query.all()
     treatments = Treatment.query.all()
     exercises = Exercise.query.all()
-    appointments = Appointment.query.all()
-    exercise_sessions = ExerciseSession.query.all()
+    programs = Program.query.all()
 
     seed_physios()
     seed_feedback()
@@ -18,7 +18,7 @@ def seed_data():
     seed_programs(users, physios)
     seed_exercises(treatments)
     seed_appointments(users, physios)
-    seed_exercise_sessions(exercises, users)
+    seed_exercise_sessions(exercises, users, programs)
 
     print("Seeding completed.")
 
