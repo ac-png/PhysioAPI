@@ -1,8 +1,8 @@
 """Initial Migration
 
-Revision ID: e82501aa1314
+Revision ID: dff51dc4fcfb
 Revises: 
-Create Date: 2025-03-19 14:48:23.816636
+Create Date: 2025-03-20 22:44:26.719153
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'e82501aa1314'
+revision = 'dff51dc4fcfb'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -31,6 +31,11 @@ def upgrade():
     sa.Column('last_name', sa.String(length=255), nullable=False),
     sa.Column('location', sa.String(length=255), nullable=False),
     sa.PrimaryKeyConstraint('physio_id')
+    )
+    op.create_table('Roles',
+    sa.Column('role_id', sa.String(), nullable=False),
+    sa.Column('role_name', sa.String(length=255), nullable=False),
+    sa.PrimaryKeyConstraint('role_id')
     )
     op.create_table('Treatments',
     sa.Column('treatment_id', sa.String(), nullable=False),
@@ -58,7 +63,9 @@ def upgrade():
     sa.Column('email', sa.String(length=255), nullable=False),
     sa.Column('password', sa.String(length=255), nullable=False),
     sa.Column('physio_id', sa.String(), nullable=False),
+    sa.Column('role_id', sa.String(), nullable=False),
     sa.ForeignKeyConstraint(['physio_id'], ['Physios.physio_id'], ondelete='CASCADE'),
+    sa.ForeignKeyConstraint(['role_id'], ['Roles.role_id'], ondelete='CASCADE'),
     sa.PrimaryKeyConstraint('user_id')
     )
     op.create_table('Appointments',
@@ -106,6 +113,7 @@ def downgrade():
     op.drop_table('Users')
     op.drop_table('Exercises')
     op.drop_table('Treatments')
+    op.drop_table('Roles')
     op.drop_table('Physios')
     op.drop_table('Feedback')
     # ### end Alembic commands ###

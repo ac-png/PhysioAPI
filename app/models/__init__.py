@@ -1,4 +1,5 @@
 from .physio import Physio
+from .role import Role
 from .feedback import Feedback
 from .treatment import Treatment
 from .user import User
