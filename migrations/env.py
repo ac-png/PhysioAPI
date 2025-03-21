@@ -4,7 +4,7 @@ from logging.config import fileConfig
 from flask import current_app
 from alembic import context
 from app.db import db
-from app.models import Physio, Feedback, Treatment, User, Program, Exercise, ExerciseSession, Appointment
+from app.models import Physio, User, Role, Patient, Program, Treatment, Exercise, Appointment, Feedback
 
 config = context.config
 

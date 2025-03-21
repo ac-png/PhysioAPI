@@ -6,13 +6,11 @@ def seed_roles():
     db.session.query(Role).delete()
     db.session.commit()
 
-    public_role = Role(role_id=str(uuid.uuid4()), role_name='Public')
-    client_role = Role(role_id=str(uuid.uuid4()), role_name='Client')
-    staff_role = Role(role_id=str(uuid.uuid4()), role_name='Staff')
+    patient_role = Role(role_id=str(uuid.uuid4()), role_name='Patient')
+    physio_role = Role(role_id=str(uuid.uuid4()), role_name='Physio')
 
-    db.session.add(public_role)
-    db.session.add(client_role)
-    db.session.add(staff_role)
+    db.session.add(patient_role)
+    db.session.add(physio_role)
 
     db.session.commit()
 

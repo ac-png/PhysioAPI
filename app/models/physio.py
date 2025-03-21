@@ -11,3 +11,5 @@ class Physio(db.Model):
     company_name = db.Column(db.String(255), nullable=False)
     email = db.Column(db.String(255), nullable=False)
     phone = db.Column(db.String(255), nullable=False)
+    specialisation = db.Column(db.String(255), nullable=False)
+    user_id = db.Column(db.String, db.ForeignKey('Users.user_id', ondelete='CASCADE'), nullable=False)

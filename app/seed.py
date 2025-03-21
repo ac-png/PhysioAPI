@@ -1,12 +1,8 @@
-from app.seeds import seed_physios, seed_roles, seed_users, seed_programs, seed_appointments
+from app.seeds import seed_roles
 
 def seed_data():
     print("Seeding data...")
-    seed_physios()
     seed_roles()
-    seed_users()
-    seed_programs()
-    seed_appointments()
     print("Seeding completed.")
 
 def clear_old_data():

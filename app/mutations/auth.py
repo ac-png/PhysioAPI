@@ -5,20 +5,18 @@ import uuid
 from flask import current_app
 from werkzeug.security import check_password_hash, generate_password_hash
 from app.models.user import User
-from app import db
+from app.db import db
 
 class RegisterMutation(graphene.Mutation):
     class Arguments:
-        first_name = graphene.String(required=True)
-        last_name = graphene.String(required=True)
         email = graphene.String(required=True)
         password = graphene.String(required=True)
-        physio_id = graphene.String(required=True)
+        roleId = graphene.String(required=True)
 
     success = graphene.Boolean()
     message = graphene.String()
 
-    def mutate(self, info, first_name, last_name, email, password, physio_id):
+    def mutate(self, info, email, password, roleId):
         if '@' not in email:
             return RegisterMutation(success=False, message="Invalid email format")
 
@@ -28,11 +26,9 @@ class RegisterMutation(graphene.Mutation):
 
         new_user = User(
             user_id=str(uuid.uuid4()),
-            first_name=first_name,
-            last_name=last_name,
             email=email,
             password=generate_password_hash(password),
-            physio_id=physio_id
+            role_id=roleId
         )
 
         db.session.add(new_user)
