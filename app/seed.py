@@ -1,25 +1,12 @@
-from app.seeds import seed_physios, seed_feedback, seed_treatments, seed_users, seed_programs, seed_exercises, seed_appointments, seed_exercise_sessions
-from app.models import Physio, User, Treatment, Exercise, Appointment, ExerciseSession, Program
-
+from app.seeds import seed_physios, seed_roles, seed_users, seed_programs, seed_appointments
 
 def seed_data():
     print("Seeding data...")
-
-    physios = Physio.query.all()
-    users = User.query.all()
-    treatments = Treatment.query.all()
-    exercises = Exercise.query.all()
-    programs = Program.query.all()
-
     seed_physios()
-    seed_feedback()
-    seed_treatments()
-    seed_users(physios)
-    seed_programs(users, physios)
-    seed_exercises(treatments)
-    seed_appointments(users, physios)
-    seed_exercise_sessions(exercises, users, programs)
-
+    seed_roles()
+    seed_users()
+    seed_programs()
+    seed_appointments()
     print("Seeding completed.")
 
 def clear_old_data():

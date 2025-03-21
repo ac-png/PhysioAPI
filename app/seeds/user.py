@@ -1,28 +1,48 @@
 from app.db import db
-from app.models import User
-from werkzeug.security import generate_password_hash
-from faker import Faker
+from app.models import User, Role
 import uuid
+from faker import Faker
 
 fake = Faker()
 
-def create_user(physio_id):
-    return User(
+def seed_users():
+    db.session.query(User).delete()
+    db.session.commit()
+
+    roles = db.session.query(Role).all()
+
+    if len(roles) < 3:
+        print("Not enough roles to create users.")
+        return
+
+    user1 = User(
         user_id=str(uuid.uuid4()),
-        first_name=fake.first_name(),
-        last_name=fake.last_name(),
         email=fake.email(),
-        password=generate_password_hash('password'),
-        physio_id=physio_id
+        password='password123',
+        role_id=roles[0].role_id
     )
 
-def seed_users(physios):
-    users = []
-    for physio in physios:
-        user = create_user(physio.physio_id)
-        users.append(user)
-        db.session.add(user)
-    db.session.commit()
-    print("Users seeded!")
-    return users
+    user2 = User(
+        user_id=str(uuid.uuid4()),
+        email=fake.email(),
+        password='password123',
+        role_id=roles[1].role_id
+    )
 
+    user3 = User(
+        user_id=str(uuid.uuid4()),
+        email=fake.email(),
+        password='password123',
+        role_id=roles[2].role_id
+    )
+
+    db.session.add(user1)
+    db.session.add(user2)
+    db.session.add(user3)
+
+    db.session.commit()
+
+    print("Users have been seeded successfully!")
+
+if __name__ == "__main__":
+    seed_users()
