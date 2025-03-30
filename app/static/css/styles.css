@@ -1,35 +1,43 @@
+/* General body styling */
 body {
   font-family: 'Arial', sans-serif;
-  background-color: #f8f9fa;
+  background-color: #e8f5e9;
   padding-top: 80px;
 }
 
+/* Navbar styling */
 .navbar {
-  background-color: #007bff !important;
+  background-color: #28a745 !important;
 }
 
+/* Navbar brand and link text color */
 .navbar-brand, .nav-link {
   color: white !important;
 }
 
+/* Spacing between navbar items */
 .navbar-nav .nav-item + .nav-item {
   margin-left: 20px;
 }
 
+/* Navbar link hover transition */
 .navbar-nav .nav-link {
   transition: color 0.3s ease;
 }
 
+/* Navbar link hover effect */
 .navbar-nav .nav-link:hover {
-  color: #ffc107 !important;
+  color: #c3e6cb !important;
 }
 
+/* Main heading styling */
 h1 {
   font-size: 2.5rem;
   font-weight: bold;
-  color: #343a40;
+  color: #2e7d32;
 }
 
+/* Card component styling */
 .card {
   border: none;
   border-radius: 10px;
@@ -37,26 +45,31 @@ h1 {
   transition: box-shadow 0.3s ease;
 }
 
+/* Card hover effect */
 .card:hover {
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 }
 
+/* Card header styling */
 .card-header {
-  background-color: #007bff;
+  background-color: #28a745;
   color: white;
   font-size: 1.25rem;
   font-weight: bold;
 }
 
+/* Card body styling */
 .card-body {
   background-color: white;
   padding: 1.5rem;
 }
 
+/* Section spacing */
 .doc-section {
   margin-bottom: 30px;
 }
 
+/* Lead paragraph text styling */
 .lead {
   font-size: 1.25rem;
   color: #6c757d;
